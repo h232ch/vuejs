@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ num }}
+        <button v-on:click="addNum">increase</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10
+            },
+            watch:{
+                num: function(){
+                    this.logText(); // data 속성이 바뀌면 특정 메서드를 호출함, compute와의 차이점을 알아야 함
+                }
+            },
+            methods: {
+                addNum: function(){
+                    this.num = this.num +1;
+                },
+                logText: function(){
+                    console.log('changed');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

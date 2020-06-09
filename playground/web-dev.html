@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- hello world 전통적은 HTML 글 삽입 방법 Dom id = app -->
+    </div>
+
+    <script>
+        var div = document.querySelector('#app'); // 기본적은 HTML, Javascript 형태
+        console.log(div);
+        var str = 'hello world';
+        div.innerHTML = str; // Javascript를 이용한 글 삽입방법
+
+        str = 'hello world!!!';
+        div.innerHTML = str;
+        /* str = 'hello world!!';
+        document.querySelector('#app').innerHTML = str; */
+
+        // vue.js의 핵심 사상인 reactivity를 활용하면 어떻게 변하는지 확인해보자 -> vue-dev.html
+
+    </script>
+</body>
+</html>

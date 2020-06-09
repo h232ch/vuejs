@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+
+    </div>
+
+    <script>
+        //$('#app')jquery문으로는 이렇게 표현 자바스크립트는 아래와 같이 표현
+        var div = document.querySelector('#app');
+        var viewModel = {};
+        //div.innerHTML = 'hello world';
+
+        //Object.defineProperty 객체는 .. 할당된 값, 속성을 바꿔주는 기능임
+        //Object.defineProperty('대상객체', '객체속성', {정의할 내용});
+
+        (function() {
+            function init() { // 라이브러리화 수행
+                Object.defineProperty(viewModel, 'str', {
+                    get: function () { // 속성에 접근했을 때 동작을 정의
+                        console.log('접근');
+                    },
+                    set: function (newValue) { // 속성의 값을 할댕했을 때 동작을 정의
+                        console.log('할당', newValue);
+                        render(newValue);
+                    }
+                });
+            }
+
+            function render(value) {
+                div.innerHTML = value;
+            }
+            init();
+        })(); // 즉시실행함수 : 기본적으로 init, render가 애플리케이션 외부에 노출되지 않도록 또다른 유효범위에 넣어주는 역활을 함
+        
+        
+
+    </script>
+    
+</body>
+</html>

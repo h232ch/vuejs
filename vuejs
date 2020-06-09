@@ -1,0 +1,75 @@
+
+1. vuejs란?
+- MVVM 패턴의 뷰모델 레이어에 해당하는 화면단 라이브러리
+- View -> DOM Listener -> Model
+-     <-- Data Bindings <-- /
+- HTML의 Dom 형태의 엘리먼트들을 자바스크립트에서 제어함 -> View에서 이벤트가 발생하면 DOM Listener로 이벤트가 전달됨
+- Model에서는 자바스크립트에 지정된 특정 로직을 실행함 -> 로직이 적용된 데이터를 Data Bindings로 전달 -> 화면에 반영 (View)
+- Vue.js 영역은 Dom Listeners, Data Bindings 이다!!
+
+
+2. 뷰 리액티비티 : 뷰의 반응성?
+
+3. 뷰 인스턴스
+- new Vue(); // 아래와 같이 사용
+- var vm = new Vue();
+
+- Vue()는 생성자 인스턴스임 function Vue(){ ~~~ }
+- 우리는 Vue 생성자로 인스턴스화한 객체를 이용하여 Vue의 기능을 사용함
+- 인스턴스에서 사용할 수 있는 속성과 API는 아래와 같음
+- new Vue({
+	el: , // 인스턴스가 그려지는 화면의 시작점 (특정 HTML 태그)
+	template: , // 화면에 표시할 요소 (HTML, CSS 등)
+	data: , // 뷰의 반응성(리액티비티)가 반영된 데이터 속성
+	methods: , // 화면의 동작과 이벤트 로직을 제어하는 메서드
+	created: , // 뷰 라이프 사이클과 관련된 속성
+	watch: , // data에서 정의한 속성이 변화했을 때 추가 동작을 수행할 수 있게 정의
+	})
+
+4. 뷰 컴포넌트
+- 화면의 영역을 영역벌로 구분하여 개발할 수 있는 뷰의 기능 -> 재사용성이 올라가고 빠르게 화면을 제작할 수 있음
+- 컴포넌트간의 관계가 생성됨 -> 트리형태 (기본적으로 뷰를 생성하면 루트 컴포넌트가 됨)
+- 화면에 따라서 영역별로 관계(상위, 하위 컴포넌트)가 생기고 각각의 영역에서는 영역 내의 데이터 즉 지역데이터를 관리하고
+- 해당 데이터를 다른 영역과 공유하기위해서는 상위에서 하위로는 프롭스 속성, 하위에서 상위로는 이벤트 발생으로 전달해야 함
+
+- 같은 레벨에서의 컴포넌트 통신 방법 : Root (AppHeader <- 값 -> AppContent)
+
+5. 뷰 라우터
+
+6. 뷰 라우터 링크
+
+7. 자바스크립트 비동기 처리 패턴
+- callback, promise, promise + generator, async & await
+
+8. 뷰 탬플릿 문법 : 뷰로 화면을 조작하는 방법 (2가지가 존재함)
+- Data Binding 방법 
+- <div> {{ message }} </div>
+- new Vue {
+	data: {
+		message: 'hi'
+	}
+}
+- 뷰 디릭티브 v-if의 값에 따라서 Vue.js를 표현하거나 하지않음
+- <div> Hello <span v-if="show">Vue.js</span>
+- new Vue({
+	data: {
+		show: false
+	}
+})
+
+9. .vue 파일? (vu 입력 후 tab 입력)
+
+10. 최종 정리
+- Reactivity : 핵심기능, 데이터 변화를 뷰에서 감지하여 화면에 반영, 화면조작 API 등을 뷰 속성에서 제공 Vue.on, Vue.click 등
+- 인스턴스 : 뷰로 개발을 할떄 필수로 생성하는 단위, 인스턴스 내에 속성, 데이터를 추가하여 사용 (Vue)
+- 컴포넌트 : 화면의 영역을 구분해서 개발(Vue 단위로 나눔), 프론트엔드 프레임워크에서 가장 중요한 개념, 대부분의 UI가 컴포넌트로 개발
+- 컴포넌트 통신 : proprs(상위 데이터를 하위로), event emit(하위 이벤트를 상위로)
+- HTTP 통신 라이브러리 (Axios) : Post, Get 등의 요청을 보냄
+- 템플릿 문법 (화면을 조작하기 위한 뷰의 문법)
+ 1. 데이터 바인딩 : (데이터를 화면에 엮어줌)
+ 2. 뷰 디렉티브 : (뷰가 추가로 제공해주는 문법 v-on 등)
+- Vue CLI : 프로젝트를 생성할때 명령을 이용해서 생성, vue Cli3 버전으로 생성했음
+- 싱글 파일 컴포넌트 : .vue 파일의 학습 -> .vue 파일이 웹팩에서 구동됨, main.js에서 vue를 불러들임
+
+- vue 공식문서를 정독하는 것을 추천함 -> vuejs.org
+- https://www.inflearn.com/course/Age-of-Vuejs/lecture/21473

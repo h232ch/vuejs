@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      new Vue({ //reactivity 속성이 Vue에 모두 반영되어있어서 data영역의 message만 바꿔도 화면의 내용이 바뀌게되는 것!
+        el: '#app',
+        data: {
+          message: 'Hello Vue.js'
+        }
+      })
+    </script>
+  </body>
+</html>
